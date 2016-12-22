@@ -8,7 +8,7 @@
     "build-css": "node-sass app/static/scss/app.scss app/static/css/app.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "watch-js": "nodemon -e js,jsx -x \"NODE_ENV=development babel-node app/server.js\"",
-    "watch": "npm run watch-css | npm run watch-js"
+    "watch": "npm run watch-css | npm run watch-js | webpack --watch --progress --colors"
   },
   "dependencies": {
     "bcrypt": "^1.0.1",
