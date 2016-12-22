@@ -1,0 +1,13 @@
+doctype html
+html
+	head
+		meta(name='charset', content='utf-8')
+		link(rel='stylesheet', href='/css/app.css')
+		link(href='https://fonts.googleapis.com/css?family=Nunito+Sans:600|Open+Sans:400,400i' rel='stylesheet')
+	body
+		div#main
+			!= markup
+		script.
+			window.info = !{JSON.stringify(info)}
+		script(src='/js/bundle.js')
+

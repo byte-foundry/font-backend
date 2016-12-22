@@ -1,0 +1,53 @@
+{
+  "name": "font-backend",
+  "version": "1.0.0",
+  "description": "A font backend for prototypo",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build-css": "node-sass app/static/scss/app.scss app/static/css/app.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "watch-js": "nodemon -e js,jsx -x \"NODE_ENV=development babel-node app/server.js\"",
+    "watch": "npm run watch-css | npm run watch-js"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.1",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "cors": "^2.8.1",
+    "ejs": "2.5.x",
+    "express": "4.14.x",
+    "express-session": "^1.14.2",
+    "lodash": "^4.17.2",
+    "lowdb": "^0.14.0",
+    "moment": "^2.17.1",
+    "pug": "^2.0.0-beta6",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-router": "^3.0.0",
+    "recharts": "^0.19.1",
+    "slug": "^0.9.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.20.0",
+    "babel-loader": "6.2.x",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-flow-strip-types": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "babel-plugin-transform-regenerator": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-project-relative-import": "^2.0.1",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.12.1",
+    "flow-bin": "^0.37.0",
+    "http-server": "0.9.x",
+    "node-sass": "^4.1.1",
+    "nodemon": "^1.11.0",
+    "sass-loader": "^4.1.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0"
+  }
+}

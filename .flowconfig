@@ -1,0 +1,12 @@
+[ignore]
+
+[include]
+app/*.js
+app/*.jsx
+app/**/*.jsx
+
+[libs]
+flow-typed/npm/
+decls/
+
+[options]
