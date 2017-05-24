@@ -20,6 +20,10 @@ module.exports = {
 					cacheDirectory: 'babel_cache',
 				},
 			},
+			{
+		      test: /\.(png|jpg|)$/,
+		      loader: 'url-loader?limit=200000',
+		    },
 		],
 	},
 	plugins: [

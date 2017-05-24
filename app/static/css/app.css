@@ -5,67 +5,129 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  overflow: hidden; }
 
 .app {
-  margin-left: 205px;
-  display: flex; }
+  margin-left: 250px;
+  display: block; }
+
+.color-john-fell {
+  color: #24d390;
+  font-weight: bold; }
+
+.color-venus {
+  color: #f56954;
+  font-weight: bold; }
+
+.color-elzevir {
+  color: #00bdd0;
+  font-weight: bold; }
 
 .sidebar {
-  width: 200px;
+  width: 250px;
   height: 100%;
   position: fixed;
   background: #24d390;
-  left: 0px;
-  font-family: 'Open Sans', sans-serif; }
+  color: #fefefe;
+  left: 0px; }
+  .sidebar-title {
+    background-color: white;
+    text-align: center;
+    height: 87px; }
   .sidebar-item {
-    padding: 15px 20px; }
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer; }
+    .sidebar-item a {
+      color: #fefefe;
+      text-decoration: none; }
     .sidebar-item:hover {
       background: #20bd81; }
 
-.container {
+.header {
+  width: 100%;
+  display: block;
+  height: 87px;
+  line-height: 87px;
+  background-color: #24d390; }
+  .header-title {
+    font-size: 36px;
+    color: #fefefe;
+    font-family: 'Nunito Sans', sans-serif;
+    padding-left: 2rem; }
+
+.overview-container {
+  position: relative;
   width: 100%;
   display: flex;
   flex-wrap: wrap; }
-  .container-item {
-    width: calc((100% - 15px)/3);
-    height: 300px;
-    background: #eee;
-    margin-right: 5px;
-    margin-top: 5px;
-    font-size: 10px; }
-    .container-item-graph {
-      height: calc(100% - 54px);
-      width: 100%; }
-    .container-item-title {
-      background: #333;
-      color: #fefefe;
-      font-size: 25px;
-      padding: 10px; }
-  .container-item-full {
-    width: calc(100% - 5px);
-    height: 450px;
-    background: #eee;
-    margin-right: 5px;
-    margin-top: 5px;
-    font-size: 10px; }
-    .container-item-full-title {
-      background: #333;
-      color: #fefefe;
-      font-size: 25px;
-      padding: 10px; }
-  .container-small-item {
-    width: calc((100% - 15px)/3);
-    height: 150px;
-    background: #24d390;
-    color: #fefefe;
-    margin-right: 5px;
-    margin-top: 5px;
-    font-size: 30px;
+  .overview-container .dataviz-container {
+    position: relative;
+    width: calc(100% - 250px);
     display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center; }
-    .container-small-item-big {
-      font-family: 'Nunito Sans', sans-serif;
-      font-size: 46px; }
+    flex-wrap: wrap; }
+    .overview-container .dataviz-container-item {
+      width: calc(100% / 3);
+      height: 300px;
+      background: #fefefe;
+      font-size: 10px; }
+      .overview-container .dataviz-container-item-graph {
+        height: calc(100% - 54px);
+        width: 100%; }
+      .overview-container .dataviz-container-item-title {
+        color: #333;
+        font-size: 30px;
+        padding-left: 2rem; }
+      .overview-container .dataviz-container-item-fontname-elzevir {
+        font-size: 25px;
+        text-align: center;
+        text-transform: capitalize;
+        color: #00bdd0; }
+      .overview-container .dataviz-container-item-fontname-fell {
+        color: #24d390;
+        font-size: 25px;
+        text-align: center;
+        text-transform: capitalize; }
+      .overview-container .dataviz-container-item-fontname-venus {
+        font-size: 25px;
+        text-align: center;
+        text-transform: capitalize;
+        color: #f56954; }
+    .overview-container .dataviz-container-title {
+      width: 100%;
+      background: #fefefe; }
+    .overview-container .dataviz-container-item-full {
+      width: 100%;
+      height: 395px;
+      background: #fefefe;
+      font-size: 10px; }
+      .overview-container .dataviz-container-item-full-title {
+        color: #333;
+        font-size: 30px;
+        padding-left: 2rem; }
+    .overview-container .dataviz-container-numbers {
+      display: flex;
+      justify-content: center;
+      width: 100%; }
+    .overview-container .dataviz-container-small-item {
+      width: calc(100% / 3);
+      height: 150px;
+      background: #fefefe;
+      color: #333;
+      font-size: 30px;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      text-align: center; }
+      .overview-container .dataviz-container-small-item-big {
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 46px;
+        padding-right: 8px; }
+  .overview-container .timeline-container {
+    position: relative;
+    width: 250px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    overflow-x: hidden; }
