@@ -9,10 +9,10 @@ import Detail from './components/detail.components.jsx';
 import NotFoundPage from './components/not-found-page.components.jsx';
 
 const routes = (
-	<Route path="/" component={App}>
+	<Route path="/v1/" component={App}>
 		<IndexRoute component={Overview} />
-		<Route path="/list" component={List} />
-		<Route path="/detail/:id" component={Detail} />
+		<Route path="/v1/list" component={List} />
+		<Route path="/v1/detail/:id" component={Detail} />
 		<Route path="*" component={NotFoundPage} />
 	</Route>
 );
