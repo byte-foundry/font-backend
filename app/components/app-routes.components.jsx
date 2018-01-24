@@ -5,7 +5,7 @@ import routes from '../routes.jsx';
 export default class AppRoutes extends React.PureComponent {
 	render() {
 		return (
-			<Router history={browserHistory} routes={routes}/>
+			<Router history={browserHistory} routes={routes} />
 		);
 	}
 }
