@@ -34,9 +34,9 @@ export default class Overview extends React.PureComponent {
 
 	getParamCountByTemplate(templateName) {
 		return _.chain(this.state.info)
-		.filter((fontinfo) => {
+			/*.filter((fontinfo) => {
 			return moment(fontinfo.date).isAfter(moment().subtract(28, 'days'));
-		})
+		})*/
 		.groupBy('template')
 		.get(templateName)
 		.map('params')
@@ -59,7 +59,8 @@ export default class Overview extends React.PureComponent {
 },{});*/
 
 	render() {
-		const hello = _.chain(this.state.info).filter((fontinfo) => {
+		const hello = _.chain(this.state.info)
+		.filter((fontinfo) => {
 			return moment(fontinfo.date).isAfter(moment().subtract(28, 'days'));
 		}).groupBy((dateItem) => {
 				return moment(dateItem.date).format('DD-MM-YYYY');
@@ -115,6 +116,8 @@ export default class Overview extends React.PureComponent {
 					<PieChartElem data={this.getParamCountByTemplate('venus.ptf')} name="venus" />
 					<PieChartElem data={this.getParamCountByTemplate('john-fell.ptf')} name="fell" />
 					<PieChartElem data={this.getParamCountByTemplate('elzevir.ptf')} name="elzevir" />
+					<PieChartElem data={this.getParamCountByTemplate('antique.ptf')} name="fell" />
+					<PieChartElem data={this.getParamCountByTemplate('gfnt.ptf')} name="elzevir" />
 				</div>
 				<Timeline data={timeline}/>
 			</div>

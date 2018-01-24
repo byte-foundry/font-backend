@@ -10,10 +10,10 @@ import NotFoundPage from './components/not-found-page.components.jsx';
 
 const routes = (
 	<Route path="/" component={App}>
-		<IndexRoute component={Overview}/>
-		<Route path="/list" component={List}/>
-		<Route path="/detail/:id" component={Detail}/>
-		<Route path="*" component={NotFoundPage}/>
+		<IndexRoute component={Overview} />
+		<Route path="/list" component={List} />
+		<Route path="/detail/:id" component={Detail} />
+		<Route path="*" component={NotFoundPage} />
 	</Route>
 );
 

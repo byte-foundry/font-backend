@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 type BackendConfig = {
 	port: number,
@@ -17,7 +17,7 @@ type BackendConfig = {
 };
 
 const config: BackendConfig = {
-	port: 80,
+	port: 8002,
 	domain: 'http://merge.prototypo.io/',
 	corsOrigin: ['https://newui.prototypo.io', 'https://dev.prototypo.io', 'https://app.prototypo.io', 'https://beta.prototypo.io', 'http://localhost:9000'],
 	fontDir: 'app/data/fonts/',

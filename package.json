@@ -7,8 +7,9 @@
   "scripts": {
     "build-css": "node-sass app/static/scss/app.scss app/static/css/app.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "watch-js": "nodemon -e js,jsx -x \"cross-env NODE_ENV=development babel-node app/server.js\"",
-    "watch": "npm run watch-css | npm run watch-js | webpack --watch --progress --colors"
+    "start:server": "nodemon -e js,jsx -x \"cross-env NODE_ENV=development babel-node app/server.js\"",
+    "start:prod": "NODE_ENV=production babel-node app/server.js",
+    "start": "npm run watch-css | npm run watch-js | webpack --watch --progress --colors"
   },
   "dependencies": {
     "babel-eslint": "^7.1.1",
