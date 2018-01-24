@@ -133,7 +133,7 @@ export function handleInfoPostRequest(req: express$Request, res: express$Respons
 
 export function loginGet(req: express$Request, res: express$Response): void {
 	if (req.session && req.session.user) {
-		res.redirect('/');
+		res.redirect('/v1/');
 	}
 	else {
 		res.render('login', {
@@ -163,7 +163,7 @@ export function loginPost(req: express$Request, res: express$Response): void {
 			() => {
 				if (req.session) {
 					req.session.user = 'authenticate';
-					res.redirect('/');
+					res.redirect('/v1/');
 				}
 			// error callback
 			},
