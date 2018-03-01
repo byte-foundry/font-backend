@@ -1,9 +1,7 @@
 #!/usr/local/bin/fontforge
 Open('tmp/'+ $1)
 SelectAll()
-Simplify(255, 1.02)
 RemoveOverlap()
-SelectAll()
-Simplify(255, 1.02)
+Simplify(258, 1.04)
 AutoHint()
 Generate('app/data/fonts/' + $1:r + '.otf')
