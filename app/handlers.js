@@ -40,15 +40,21 @@ export function basicPost(req: express$Request, res: express$Response) {
 
 				exec(`./removeOverlap.pe ${fileName}.otf`, {maxBuffer: 1024 * 800}, (err) => {
 					if (err) {
-						console.log(`Error while converting font with fileName: ${fileName} ${err.message}`);
+						console.log(`[basicPost] Error while converting font with fileName: ${fileName} ${err.message}`);
 						fs.unlinkSync(`${tempDir}${fileName}.otf`);
 						res.sendStatus(500);
 					}
 
-					res.download(`${outputDir}${fileName}.otf`, `${fileName}.otf`, () => {
-						console.log(`Successfully converted font with fileName: ${fileName}`);
-						fs.unlinkSync(`${outputDir}${fileName}.otf`);
-						console.log(`Successfully destroyed merged font with fileName: ${fileName}`);
+					res.download(`${outputDir}${fileName}.otf`, `${fileName}`, () => {
+						console.log(`[basicPost] Successfully converted font with fileName: ${fileName}`);
+						try {
+							fs.unlinkSync(`${outputDir}${fileName}.otf`);
+							console.log(`[basicPost] Successfully destroyed merged font with fileName: ${fileName}`);
+						}
+						catch (e) {
+							console.log(`[basicPost] Error while deleting ${fileName}.otf`);
+						}
+						res.sendStatus(500);
 					});
 				});
 			},
@@ -66,13 +72,18 @@ export function handleFilePostRequest(req: express$Request, res: express$Respons
 			fs.writeFile(tempDir + dbFileName, req.body, () => {
 				exec(`./removeOverlap.pe ${dbFileName}`, {maxBuffer: 1024 * 800}, (err) => {
 					if (err) {
-						console.log(`Error while converting font with fileName: ${dbFileName} ${err.message}`);
-						fs.unlinkSync(`${tempDir}${dbFileName}`);
+						console.log(`[handleFilePostRequest:overlap] Error while converting font with fileName: ${dbFileName} ${err.message}`);
+						try {
+							fs.unlinkSync(`${tempDir}${dbFileName}`);
+						}
+						catch (e) {
+							console.log(`[handleFilePostRequest:overlap] Error while deleting ${dbFileName}.otf`);
+						}
 						res.sendStatus(500);
 					}
 					else {
 						res.download(`${fontDir}${dbFileName}`, fileName, () => {
-							console.log(`Successfully converted font with fileName: ${fileName}`);
+							console.log(`[handleFilePostRequest:overlap] Successfully converted font with fileName: ${fileName}`);
 						});
 					}
 				});
@@ -81,14 +92,14 @@ export function handleFilePostRequest(req: express$Request, res: express$Respons
 		else {
 			fs.writeFile(fontDir + dbFileName, req.body, (err) => {
 				if (err) {
-					console.log(`Error while downloading font with fileName: ${dbFileName} ${err.message}`);
+					console.log(`[handleFilePostRequest:no-overlap] Error while downloading font with fileName: ${dbFileName} ${err.message}`);
 					res.sendStatus(500);
 				}
 				else {
 					const name: string = `${fontDir}${dbFileName}`;
 
 					res.download(name, fileName, () => {
-						console.log(`Successfully downloaded font with fileName: ${dbFileName}`);
+						console.log(`[handleFilePostRequest:no-overlap] Successfully downloaded font with fileName: ${dbFileName}`);
 						if (req.params.user === 'plumin') {
 							setTimeout(() => {
 								fs.unlinkSync(`${fontDir}${fileName}`);
@@ -120,11 +131,11 @@ export function handleInfoPostRequest(req: express$Request, res: express$Respons
 			db.get('fonts').push({...body, id}).value();
 			db.write()
 				.then(() => {
-					console.log(`Successfully created info for ${id}`);
+					console.log(`[handleInfoPostRequest] Successfully created info for ${id}`);
 					res.sendStatus(200);
 				})
 				.catch((err) => {
-					console.log(`Error while downloading info with id: ${id} ${err.message}`);
+					console.log(`[handleInfoPostRequest] Error while downloading info with id: ${id} ${err.message}`);
 					res.sendStatus(500);
 				});
 		}
