@@ -54,7 +54,6 @@ export function basicPost(req: express$Request, res: express$Response) {
 						catch (e) {
 							console.log(`[basicPost] Error while deleting ${fileName}.otf`);
 						}
-						res.sendStatus(500);
 					});
 				});
 			},
