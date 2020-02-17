@@ -19,7 +19,7 @@ type BackendConfig = {
 const config: BackendConfig = {
 	port: 8002,
 	domain: 'http://merge.prototypo.io/',
-	corsOrigin: ['hssttps://newui.prototypo.io', 'https://dev.prototypo.io', 'https://app.prototypo.io', 'https://beta.prototypo.io', 'http://localhost:9000', 'https://newrenderingprototypo.netlify.com', 'http://localhost:3000', 'http://peasy-poc.netlify.com', 'https://prototypo-lite-builder.netlify.com', 'https://unique-beta.prototypo.io', 'https://unique-dev.prototypo.io', 'https://unique.prototypo.io'],
+	corsOrigin: ['hssttps://newui.prototypo.io', 'https://dev.prototypo.io', 'https://app.prototypo.io', 'https://beta.prototypo.io', 'http://localhost:9000', 'https://newrenderingprototypo.netlify.com', 'http://localhost:3000', 'http://peasy-poc.netlify.com', 'https://prototypo-lite-builder.netlify.com', 'https://unique-beta.prototypo.io', 'https://unique-dev.prototypo.io', 'https://unique.prototypo.io', 'https://dev.lesanimals.digital', 'https://animales.prototypo.io', 'https://www.prototypo.io', 'https://prototypo.io', 'https://insights.hotjar.com'],
 	fontDir: 'app/data/fonts/',
 	outputDir: 'app/data/fonts/',
 	tempDir: 'tmp/',

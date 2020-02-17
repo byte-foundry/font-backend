@@ -23,7 +23,9 @@ const app = express();
 
 // set routes
 // user urlencoded
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.raw({limit: '50mb'}));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.static(path.join(__dirname, 'static')));
 // configure jade templating engine
 app.set('views', './app/views');

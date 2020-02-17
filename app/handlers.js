@@ -40,6 +40,7 @@ export function basicPost(req: express$Request, res: express$Response) {
 
 				exec(`./removeOverlap.pe ${fileName}.otf`, {maxBuffer: 1024 * 800}, (err) => {
 					if (err) {
+						exec(`pkill -f ${fileName}`);
 						console.log(`[basicPost] Error while converting font with fileName: ${fileName} ${err.message}`);
 						fs.unlinkSync(`${tempDir}${fileName}.otf`);
 						res.sendStatus(500);
@@ -71,6 +72,7 @@ export function handleFilePostRequest(req: express$Request, res: express$Respons
 			fs.writeFile(tempDir + dbFileName, req.body, () => {
 				exec(`./removeOverlap.pe ${dbFileName}`, {maxBuffer: 1024 * 800}, (err) => {
 					if (err) {
+						exec(`pkill -f ${fileName}`);
 						console.log(`[handleFilePostRequest:overlap] Error while converting font with fileName: ${dbFileName} ${err.message}`);
 						try {
 							fs.unlinkSync(`${tempDir}${dbFileName}`);
