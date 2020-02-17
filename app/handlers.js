@@ -50,6 +50,7 @@ export function basicPost(req: express$Request, res: express$Response) {
 						console.log(`[basicPost] Successfully converted font with fileName: ${fileName}`);
 						try {
 							fs.unlinkSync(`${outputDir}${fileName}.otf`);
+							fs.unlinkSync(`${tempDir}${fileName}.otf`);
 							console.log(`[basicPost] Successfully destroyed merged font with fileName: ${fileName}`);
 						}
 						catch (e) {
@@ -84,6 +85,14 @@ export function handleFilePostRequest(req: express$Request, res: express$Respons
 					}
 					else {
 						res.download(`${fontDir}${dbFileName}`, fileName, () => {
+							try {
+								fs.unlinkSync(`${fontDir}${dbFileName}`);
+								fs.unlinkSync(`${tempDir}${dbFileName}`);
+								console.log(`[basicPost] Successfully destroyed merged font with fileName: ${fileName}`);
+							}
+							catch (e) {
+								console.log(`[basicPost] Error while deleting ${fileName}.otf`);
+							}
 							console.log(`[handleFilePostRequest:overlap] Successfully converted font with fileName: ${fileName}`);
 						});
 					}
